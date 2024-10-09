@@ -1,0 +1,10 @@
+Primero debemos crear el packquetes según la documentación y verion,
+luego se crear una migración añadiendo un atributo a la tabla productos con el nombre de is_completed nos ayudara en la lógica  para saber si un producto es nuevo para poder publicar en Facebook solo esos productos, 
+luego verificar en el paquete de products en el proyecto añadirle en el  modelode product esta linea, protected $fillable = [
+        'type',
+        'attribute_family_id',
+        'sku',
+        'parent_id',
+        'is_completed'
+    ];
+luego 
