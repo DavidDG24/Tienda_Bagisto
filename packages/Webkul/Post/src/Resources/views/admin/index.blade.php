@@ -8,6 +8,7 @@
     <!-- Page Content -->
     <div class="page-content">
         <h1>Publicar en Facebook</h1>
+        
     </div>
 
 </x-admin::layouts>

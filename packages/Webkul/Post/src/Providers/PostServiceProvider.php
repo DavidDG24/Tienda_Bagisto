@@ -17,12 +17,13 @@ class PostServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
 
+        
         $this->loadRoutesFrom(__DIR__ . '/../Routes/admin-routes.php');
 
         $this->loadRoutesFrom(__DIR__ . '/../Routes/shop-routes.php');
 
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'post');
-
+        
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'post');
 
         Event::listen('bagisto.admin.layout.head', function($viewRenderEventManager) {
