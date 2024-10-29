@@ -7,14 +7,14 @@ use Webkul\Post\Http\Controllers\Admin\PostController;
 
 use Webkul\Post\Http\Controllers\Admin\FacebookSettingsController;
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('facebook-settings', [FacebookSettingsController::class, 'index'])->name('admin.facebook-settings.index');
-    Route::put('facebook-settings', [FacebookSettingsController::class, 'update'])->name('admin.facebook-settings.update');
-});
+Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin'], function () {
+    // Ruta para la configuración de Facebook
+    Route::get('facebook-post', [FacebookSettingsController::class, 'index'])->name('admin.post.facebook-post.index');
+    Route::put('facebook-post', [FacebookSettingsController::class, 'updatePost'])->name('admin.facebook-post.update');
 
+    Route::get('facebook-video', [FacebookSettingsController::class, 'video'])->name('admin.post.facebook-video.index');
+    Route::post('facebook-video', [FacebookSettingsController::class, 'upVideo'])->name('admin.facebook-video.up');
 
-Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin/post'], function () {
-    Route::controller(PostController::class)->group(function () {
-        Route::get('', 'index')->name('admin.post.index');
-    });
+    // Ruta para las publicaciones
+    Route::get('post', [PostController::class, 'index'])->name('admin.post.index');
 });

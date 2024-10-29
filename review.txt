@@ -8,3 +8,11 @@ luego verificar en el paquete de products en el proyecto añadirle en el  modelo
         'is_completed'
     ];
 luego 
+
+-Una ves hecha la lógica, ahora crearemos una tabla para guardar las credenciales de token de acceso, id de pagina, mensaje y estado
+- php artisan make:migration create_facebook_settings_table --create=facebook_settings
+-Creas el modelo de FacebookSetting
+php artisan make:model FacebookSetting
+-Después creamos un controlador para mantener la lógica
+php artisan make:controller FacebookSettingsController --resource
+

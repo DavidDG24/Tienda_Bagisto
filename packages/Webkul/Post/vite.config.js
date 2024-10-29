@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
         envDir,
 
         server: {
-            host: process.env.VITE_HOST || "localhost",
+            host: process.env.VITE_HOST || "127.0.0.1",
             port: process.env.VITE_PORT || 5173,
         },
 
@@ -30,7 +30,11 @@ export default defineConfig(({ mode }) => {
                 input: [
                     "src/Resources/assets/css/app.css",
                     "src/Resources/assets/js/app.js",
-                ],
+
+                    // Archivos de tu paquete
+                    'packages/Webkul/Post/src/Resources/assets/js/fbvideo.js',
+                    'packages/Webkul/Post/src/Resources/assets/css/fbvideo.css',
+                    ],
                 refresh: true,
             }),
         ],
